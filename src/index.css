@@ -1,0 +1,83 @@
+@import '@fontsource/fredoka/500.css';
+@import '@fontsource/fredoka/600.css';
+@import '@fontsource/fredoka/700.css';
+@import '@fontsource/nunito/400.css';
+@import '@fontsource/nunito/600.css';
+@import '@fontsource/nunito/700.css';
+@import '@fontsource/nunito/800.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --plum: #3d1146;
+  --cream: #fbf3e4;
+  --sunset: #f97316;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #3d1146;
+  color: #3d1146;
+  font-family: 'Nunito', system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+::selection {
+  background: #f97316;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f0e2c8;
+}
+::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border-radius: 999px;
+  border: 2px solid #f0e2c8;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-3 rounded-full bg-sunset-500 px-8 py-4 font-display text-lg font-semibold text-white shadow-pop transition-transform duration-300 hover:-translate-y-1 hover:bg-sunset-600;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-plum-700/15 bg-white/70 px-3 py-1 text-xs font-bold tracking-wide text-plum-800;
+  }
+  .eyebrow {
+    @apply font-display text-sm font-semibold uppercase tracking-[0.25em] text-sunset-600;
+  }
+  .huge {
+    @apply font-display font-bold leading-[0.95] tracking-tight text-plum-800;
+  }
+}
+
+.noise {
+  position: relative;
+}
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  z-index: 5;
+}

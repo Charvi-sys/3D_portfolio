@@ -1,0 +1,32 @@
+/** Edit this file to add / reorder skills. */
+export const SKILLS = [
+  {
+    group: 'Fashion Craft',
+    items: [
+      { name: 'Garment Construction', level: 92 },
+      { name: 'Draping & Pattern Grading', level: 88 },
+      { name: 'Fashion Illustration', level: 90 },
+      { name: 'Textiles & Dyes', level: 82 },
+    ],
+  },
+  {
+    group: 'Digital Design',
+    items: [
+      { name: '3D Garment (Marvelous)', level: 85 },
+      { name: 'Adobe Illustrator / Photoshop', level: 93 },
+      { name: 'React Three Fiber / Three.js', level: 80 },
+      { name: 'Motion & Interaction (GSAP)', level: 84 },
+    ],
+  },
+  {
+    group: 'Story & Direction',
+    items: [
+      { name: 'Concept & Art Direction', level: 90 },
+      { name: 'Fashion Film & Light', level: 78 },
+      { name: 'Design Systems', level: 86 },
+      { name: 'Prototyping & Iteration', level: 89 },
+    ],
+  },
+]
+
+export const TOOLCHIP = ['Illustrator', 'Photoshop', 'Marvelous', 'CLO3D', 'Figma', 'Blender', 'Three.js', 'React', 'Tailwind', 'GSAP']
