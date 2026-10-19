@@ -3,37 +3,40 @@
  */
 export const PERSON = {
   name: 'Charvi',
-  fullName: 'Charvi Sharma',
-  role: 'Fashion & Digital Designer',
-  shortRole: 'Fashion & Digital Designer',
-  tagline: 'I build little worlds for fashion, stories and ideas.',
-  email: 'hello@charvi.world',
+  fullName: 'Charvi',
+  role: 'Fashion Design Student',
+  shortRole: 'Fashion Design Student',
+  tagline: 'Designing, experimenting, and figuring things out along the way.',
+  email: 'charvimaggu@gmail.com',
   instagram: 'https://instagram.com/charvi.designs',
-  linkedin: 'https://linkedin.com/in/charvisharma',
-  location: 'New Delhi, India',
+  location: 'Rohtak, India',
   shortBio:
-    'A fashion & digital designer who treats every project like a tiny world — pattern, colour, motion and a story to walk through.',
+    "I'm Charvi, a fashion design student who enjoys exploring ideas and turning them into something tangible. My interests range from garment construction and textiles to digital design and interactive experiences.",
   bio: [
-    'I’m Charvi — a designer who fell in love with the gap between sketching a garment and seeing it move. That gap is where I live: pattern notes, fabric swatches, code and colour all mixed together.',
-    'My practice blends hands-on fashion craft (draping, grading, garment construction) with digital worlds — 3D visuals, interactive galleries and design systems. I believe a portfolio should feel like walking through a garden, not scrolling a PDF.',
-    'When I’m not at the easel or the sewing machine, I’m usually hiding playful little objects inside a 3D scene — much like the world you’re standing in right now.',
+    "I'm Charvi, a fashion design student who enjoys exploring ideas and turning them into something tangible. My interests range from garment construction and textiles to digital design and interactive experiences.",
+    "I like working with different concepts, experimenting with visuals, and learning through the process of making. For me, design isn't just about the final result; it's also about the ideas, trials, and small details that bring a project together.",
+    'This portfolio brings together my work, experiments, and ongoing journey as a designer.',
   ],
   education: [
-    { degree: 'B.Des — Fashion Design', place: 'National Institute of Fashion Technology', years: '2019 – 2023' },
-    { degree: 'Digital Storytelling & 3D', place: 'Polimoda · Online Intensive', years: '2024' },
+    {
+      degree: 'Bachelor of Design (B.Des) — Fashion Design',
+      place: 'SUVA',
+      years: '2023 – 2027',
+      status: 'Currently pursuing',
+    },
   ],
-  experience: [
-    { role: 'Junior Fashion Designer', place: 'House of Indigo, New Delhi', years: '2023 – Present' },
-    { role: 'Fashion Illustration Intern', place: 'Atelier Sundari', years: '2022' },
-    { role: 'Freelance Digital Designer', place: 'Self-employed', years: '2021 – Present' },
-  ],
-  philosophy:
-    'Design should feel less like an announcement and more like an invitation — a place you want to explore with your hands.',
+  experience: [],
+  philosophy: '',
 }
 
 export const SOCIALS = [
   { label: 'Email', value: PERSON.email, href: `mailto:${PERSON.email}`, icon: 'mail' },
   { label: 'Instagram', value: '@charvi.designs', href: PERSON.instagram, icon: 'instagram' },
-  { label: 'LinkedIn', value: 'in/charvisharma', href: PERSON.linkedin, icon: 'linkedin' },
-  { label: 'Location', value: PERSON.location, href: '#', icon: 'pin' },
+  { label: 'Address', value: PERSON.location, href: '#', icon: 'pin' },
 ]
+
+// The resume PDF lives in public/resume/ and is deployed under the configured
+// base path. Vite replaces import.meta.env.BASE_URL at build time (see fonts.js).
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
+export const RESUME_FILE = 'Charvi_Maggu_Resume.pdf'
+export const RESUME_URL = `${BASE}/resume/${RESUME_FILE}`

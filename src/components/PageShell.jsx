@@ -51,7 +51,7 @@ export default function PageShell({ children, title, accent = '#f97316' }) {
       <footer className='relative z-10 mt-24 flex flex-col items-center gap-2 border-t border-plum-800/10 py-10 text-center'>
         <p className='font-display text-sm font-bold tracking-[0.3em] text-plum-800'>CHARVI</p>
         <p className='font-body text-xs font-semibold uppercase tracking-[0.2em] text-plum-800/50'>
-          Fashion &amp; Digital Designer · made as a 3D world
+          Fashion Design Student · made as a 3D world
         </p>
       </footer>
     </div>

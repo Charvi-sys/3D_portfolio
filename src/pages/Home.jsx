@@ -21,7 +21,7 @@ function webglAvailable() {
 
 export default function Home() {
   const quality = uiStore.quality
-  const [ready, setReady] = useState(false)
+  const [ready, setReady] = useState(uiStore.enteredWorld)
   const [canvasReady, setCanvasReady] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [hovered, setHovered] = useState(null)
@@ -33,7 +33,10 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    const unsub = uiStore.subscribe((st) => setHovered(st.hoveredId))
+    const unsub = uiStore.subscribe((st) => {
+      setHovered(st.hoveredId)
+      setReady(st.enteredWorld)
+    })
     uiStore.setHover(null)
     return () => {
       unsub()
@@ -150,7 +153,7 @@ export default function Home() {
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} onGo={(loc) => flyTo(loc)} />
 
       {/* loading veil — guarantees the entry button always appears */}
-      {!ready && <LoadingScreen worldReady={canvasReady} onEnter={() => setReady(true)} />}
+      {!ready && <LoadingScreen worldReady={canvasReady} onEnter={() => uiStore.markEntered()} />}
     </div>
   )
 }

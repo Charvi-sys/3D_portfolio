@@ -35,16 +35,34 @@ export default function Collections() {
                 <h2 className='mt-2 font-display text-4xl font-bold leading-none text-plum-800 md:text-6xl'>
                   {col.title}
                 </h2>
-                <p className='mt-1 font-display text-sm font-semibold text-plum-700/55'>{col.year}</p>
-                <p className='mt-5 font-body text-lg font-semibold leading-relaxed text-plum-700/85'>
-                  {col.concept}
-                </p>
-                <div className='mt-5 rounded-2xl bg-white/70 p-4'>
-                  <p className='font-display text-xs font-bold uppercase tracking-widest text-plum-700/60'>
-                    Inspiration
+                {col.subtitle && (
+                  <p className='mt-2 font-body text-lg font-bold italic leading-snug text-sunset-600 md:text-xl'>
+                    {col.subtitle}
                   </p>
-                  <p className='mt-1 font-body text-sm font-semibold italic text-plum-700/80'>{col.inspiration}</p>
+                )}
+                {col.year && <p className='mt-1 font-display text-sm font-semibold text-plum-700/55'>{col.year}</p>}
+                <div className='mt-5 space-y-4'>
+                  {col.concept.map((para, i) => (
+                    <p key={i} className='font-body text-lg font-semibold leading-relaxed text-plum-700/85'>
+                      {para}
+                    </p>
+                  ))}
                 </div>
+                {col.garments && col.garments.length > 0 && (
+                  <div className='mt-5 rounded-2xl bg-white/70 p-4'>
+                    <p className='font-display text-xs font-bold uppercase tracking-widest text-plum-700/60'>
+                      Garments Featured
+                    </p>
+                    <ul className='mt-2 space-y-1.5'>
+                      {col.garments.map((g) => (
+                        <li key={g} className='flex items-center gap-2 font-body text-sm font-semibold italic text-plum-700/80'>
+                          <span className='h-1.5 w-1.5 shrink-0 rounded-full' style={{ background: col.colors[0] }} />
+                          {g}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 <div className='mt-5'>
                   <p className='font-display text-xs font-bold uppercase tracking-widest text-plum-700/60'>
                     Palette
@@ -60,23 +78,21 @@ export default function Collections() {
                     ))}
                   </div>
                 </div>
-                <div className='mt-4 flex flex-wrap gap-2'>
-                  {col.materials.map((m) => (
-                    <span key={m} className='chip'>
-                      {m}
-                    </span>
-                  ))}
-                </div>
               </div>
               {/* horizontal cinematic images */}
               <div className={`relative ${idx % 2 ? 'md:order-1' : ''}`}>
                 <div className='flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4'>
-                  {col.images.map((img, i) => (
+                  {(col.photos || []).map((src, i) => (
                     <div
-                      key={i}
+                      key={`photo-${i}`}
                       className='w-64 shrink-0 snap-center overflow-hidden rounded-2xl shadow-soft transition-transform duration-300 hover:-translate-y-2 md:w-72'
                     >
-                      <img src={img} alt={`${col.title} look ${i + 1}`} loading='lazy' className='aspect-[3/4] w-full object-cover' />
+                      <img
+                        src={src}
+                        alt={`${col.title} dress photo ${i + 1}`}
+                        loading='lazy'
+                        className='aspect-[3/4] w-full object-cover'
+                      />
                     </div>
                   ))}
                 </div>

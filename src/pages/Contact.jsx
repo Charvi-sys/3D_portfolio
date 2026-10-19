@@ -14,12 +14,6 @@ function Icon({ name }) {
           <circle cx='17.2' cy='6.8' r='1.2' fill={p} stroke='none' />
         </svg>
       )
-    case 'linkedin':
-      return (
-        <svg viewBox='0 0 24 24' width='22' height='22' fill={p}>
-          <path d='M4.98 3.5a2.5 2.5 0 1 1-.02 5 2.5 2.5 0 0 1 .02-5zM3 9h4v12H3zM9 9h4v1.8h.06c.56-1 1.9-2.05 3.94-2.05 4.2 0 4.97 2.76 4.97 6.35V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.78 0-2.05 1.4-2.05 2.83V21H9z' />
-        </svg>
-      )
     case 'pin':
       return (
         <svg viewBox='0 0 24 24' width='22' height='22' fill='none' stroke={p} strokeWidth='1.8' strokeLinecap='round'>

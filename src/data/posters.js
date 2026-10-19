@@ -152,7 +152,7 @@ export function makePoster(opts = {}) {
 }
 
 /** Stylised portrait avatar for the About page (abstract, original artwork). */
-export function makeAvatar(seed = 7) {
+export function makeAvatar(seed = 7, name = 'CHARVI') {
   const r = rng(seed)
   const blossoms = Array.from({ length: 9 }, (_, i) => {
     const a = (i / 9) * Math.PI * 2
@@ -190,7 +190,7 @@ export function makeAvatar(seed = 7) {
   <path d="M258 700 q -14 -196 142 -196 q 142 0 142 196 Z" fill="none" stroke="#fb923c" stroke-width="10" stroke-dasharray="26 22" opacity="0.8"/>
   <circle cx="356" cy="368" r="26" fill="#3d1146"/>
   <path d="M356 396 q 30 22 58 0" stroke="#3d1146" stroke-width="8" fill="none" stroke-linecap="round"/>
-  <text x="400" y="768" text-anchor="middle" font-family="Fredoka, system-ui, sans-serif" font-size="30" font-weight="600" letter-spacing="8" fill="#fbf3e4">CHARVI SHARMA</text>
+  <text x="400" y="768" text-anchor="middle" font-family="Fredoka, system-ui, sans-serif" font-size="30" font-weight="600" letter-spacing="8" fill="#fbf3e4">${esc(name)}</text>
 </svg>`
   return toUri(svg)
 }

@@ -5,6 +5,8 @@ import App from './App'
 import ErrorBoundary from './components/ErrorBoundary'
 import './index.css'
 
+
+
 // GitHub Pages serves the site under /3D_portfolio/, so the router must strip
 // that prefix to match your /about, /projects … routes. Vite replaces
 // import.meta.env.BASE_URL with the configured base at build time, so this

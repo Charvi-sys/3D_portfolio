@@ -44,9 +44,11 @@ export default function About() {
                 </motion.p>
               ))}
             </div>
-            <blockquote className='mt-8 rounded-2xl border-l-4 border-sunset-500 bg-white/70 p-6 font-display text-xl font-semibold leading-snug text-plum-800 md:text-2xl'>
-              “{PERSON.philosophy}”
-            </blockquote>
+            {PERSON.philosophy && (
+              <blockquote className='mt-8 rounded-2xl border-l-4 border-sunset-500 bg-white/70 p-6 font-display text-xl font-semibold leading-snug text-plum-800 md:text-2xl'>
+                “{PERSON.philosophy}”
+              </blockquote>
+            )}
           </div>
         </div>
       </section>
@@ -66,28 +68,37 @@ export default function About() {
                 className='rounded-2xl bg-white/70 p-5'
               >
                 <p className='font-display text-lg font-bold text-plum-800'>{e.degree}</p>
+                {e.status && (
+                  <p className='mt-1 font-display text-xs font-bold uppercase tracking-[0.2em] text-sunset-600'>
+                    {e.status}
+                  </p>
+                )}
                 <p className='font-body text-sm font-semibold text-sunset-600'>{e.place}</p>
                 <p className='font-body text-xs font-bold text-plum-700/50'>{e.years}</p>
               </motion.div>
             ))}
           </div>
-          <h2 className='mt-12 font-display text-3xl font-bold text-plum-800'>EXPERIENCE</h2>
-          <div className='mt-6 space-y-6'>
-            {PERSON.experience.map((e, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className='rounded-2xl bg-white/70 p-5'
-              >
-                <p className='font-display text-lg font-bold text-plum-800'>{e.role}</p>
-                <p className='font-body text-sm font-semibold text-sunset-600'>{e.place}</p>
-                <p className='font-body text-xs font-bold text-plum-700/50'>{e.years}</p>
-              </motion.div>
-            ))}
-          </div>
+          {PERSON.experience.length > 0 && (
+            <>
+              <h2 className='mt-12 font-display text-3xl font-bold text-plum-800'>EXPERIENCE</h2>
+              <div className='mt-6 space-y-6'>
+                {PERSON.experience.map((e, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className='rounded-2xl bg-white/70 p-5'
+                  >
+                    <p className='font-display text-lg font-bold text-plum-800'>{e.role}</p>
+                    <p className='font-body text-sm font-semibold text-sunset-600'>{e.place}</p>
+                    <p className='font-body text-xs font-bold text-plum-700/50'>{e.years}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         {/* skills */}

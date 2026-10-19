@@ -51,7 +51,7 @@ export const LOCATIONS = [
     id: 'resume',
     short: 'RESUME',
     label: 'RESUME',
-    sub: 'Experience & skills',
+    sub: 'Education & skills',
     path: '/resume',
     pos: [7.6, 3.4],
     sign: [3.8, 4.9],

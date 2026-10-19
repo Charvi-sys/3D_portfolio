@@ -1,4 +1,33 @@
+import { Suspense } from 'react'
 import { useTexture } from '@react-three/drei'
+
+/** textured plane that suspends while the image loads */
+function PosterPlane({ poster, size, toneMapped = true }) {
+  const tex = useTexture(poster)
+  return (
+    <mesh>
+      <planeGeometry args={size} />
+      <meshStandardMaterial map={tex} toneMapped={toneMapped} />
+    </mesh>
+  )
+}
+
+/** shows the poster if a path is given, plain placeholder otherwise.
+ *  Suspense lives here, so a loading/missing texture can never blank the whole Canvas. */
+function Poster({ poster, size }) {
+  const placeholder = (
+    <mesh>
+      <planeGeometry args={size} />
+      <meshStandardMaterial color='#e8dcc8' />
+    </mesh>
+  )
+  if (!poster) return placeholder
+  return (
+    <Suspense fallback={placeholder}>
+      <PosterPlane poster={poster} size={size} />
+    </Suspense>
+  )
+}
 
 /** low-poly lamp post with warm emissive globe */
 export function Lamp({ x = 0, y = 0.95, z = 0, rot = 0, scale = 1 }) {
@@ -10,7 +39,13 @@ export function Lamp({ x = 0, y = 0.95, z = 0, rot = 0, scale = 1 }) {
       </mesh>
       <mesh position={[0, 2.05, 0]}>
         <sphereGeometry args={[0.3, 12, 10]} />
-        <meshBasicMaterial color='#ffe2b0' emissive='#ffd98a' emissiveIntensity={1.4} />
+        {/* FIX: emissive is only supported by meshStandardMaterial, not meshBasicMaterial */}
+        <meshStandardMaterial
+          color='#ffe2b0'
+          emissive='#ffd98a'
+          emissiveIntensity={1.4}
+          toneMapped={false}
+        />
       </mesh>
       <mesh position={[0, 1.98, 0]}>
         <cylinderGeometry args={[0.18, 0.18, 0.06, 12]} />
@@ -72,15 +107,20 @@ export function Fountain() {
       </mesh>
       <mesh position={[0, 1.45, 0]}>
         <sphereGeometry args={[0.16, 10, 8]} />
-        <meshBasicMaterial color='#9ff0e8' emissive='#9ff0e8' emissiveIntensity={1.2} />
+        {/* FIX: emissive needs meshStandardMaterial */}
+        <meshStandardMaterial
+          color='#9ff0e8'
+          emissive='#9ff0e8'
+          emissiveIntensity={1.2}
+          toneMapped={false}
+        />
       </mesh>
     </group>
   )
 }
 
 /** easel holding a poster artwork */
-export function Easel({ x, z, y = 0.95, rot = 0, poster, scale = 1 }) {
-  const tex = useTexture(poster)
+export function Easel({ x = 0, z = 0, y = 0.95, rot = 0, poster, scale = 1 }) {
   return (
     <group position={[x, y - 0.05, z]} rotation-y={rot} scale={scale}>
       {[0.45, -0.45].map((off, i) => (
@@ -99,33 +139,30 @@ export function Easel({ x, z, y = 0.95, rot = 0, poster, scale = 1 }) {
         <boxGeometry args={[0.98, 1.18, 0.07]} />
         <meshStandardMaterial color='#c9a06a' roughness={0.85} />
       </mesh>
-      <mesh position={[0, 0.75, 0.045]}>
-        <planeGeometry args={[0.95, 1.15]} />
-        <meshStandardMaterial map={tex} toneMapped />
-      </mesh>
+      <group position={[0, 0.75, 0.045]}>
+        <Poster poster={poster} size={[0.95, 1.15]} />
+      </group>
     </group>
   )
 }
 
 /** certificate frame with poster artwork */
 export function Frame({ w = 0.9, h = 1.1, poster, thick = 0.06 }) {
-  const tex = useTexture(poster)
   return (
     <group>
       <mesh castShadow>
         <boxGeometry args={[w, h, thick]} />
         <meshStandardMaterial color='#c9a06a' roughness={0.5} metalness={0.2} />
       </mesh>
-      <mesh position={[0, 0, thick * 0.5 + 0.001]}>
-        <planeGeometry args={[w * 0.82, h * 0.84]} />
-        <meshStandardMaterial map={tex} />
-      </mesh>
+      <group position={[0, 0, thick * 0.5 + 0.001]}>
+        <Poster poster={poster} size={[w * 0.82, h * 0.84]} />
+      </group>
     </group>
   )
 }
 
 /** small stack of books */
-export function Books({ x, z, y = 0.95, rot = 0, scale = 1 }) {
+export function Books({ x = 0, z = 0, y = 0.95, rot = 0, scale = 1 }) {
   return (
     <group position={[x, y, z]} rotation-y={rot} scale={scale}>
       {[

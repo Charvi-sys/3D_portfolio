@@ -47,4 +47,4 @@ npm run preview  # serve the production build
 ## Stack
 
 React 18 · Vite · Three.js · @react-three/fiber · @react-three/drei · GSAP · Framer Motion ·
-React Router · Tailwind CSS · pdf-lib (client-side resume PDF)
+React Router · Tailwind CSS · static resume PDF (drop a file into `public/resume/`)

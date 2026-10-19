@@ -10,8 +10,8 @@ export default function Projects() {
         <h1 className='huge mt-3 text-5xl md:text-8xl'>PROJECTS</h1>
         <div className='mt-6 h-1 w-28 rounded-full bg-sunset-500' />
         <p className='mt-8 max-w-2xl font-body text-lg font-semibold leading-relaxed text-plum-700/80'>
-          Selected works — from couture studies to virtual garments. Every project lives in
-          the world you just walked through.
+          A collection of studio experiments — textiles, illustration, styling and motifs.
+          Every project lives in the world you just walked through.
         </p>
       </section>
 
@@ -39,7 +39,7 @@ export default function Projects() {
                   style={{ background: p.colors[0] }}
                 >
                   <img
-                    src={p.image}
+                    src={p.photo}
                     alt={p.title}
                     loading='lazy'
                     className='aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-105'

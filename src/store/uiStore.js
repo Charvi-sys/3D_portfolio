@@ -14,9 +14,23 @@ export const isLowEnd = () => {
   return cores <= 4
 }
 
+/**
+ * "Entered the world" flag — kept in sessionStorage so the loading veil shows
+ * once per browser tab and is skipped every time the visitor returns to the 3D world.
+ */
+const ENTERED_KEY = 'charvi.enteredWorld'
+const readEntered = () => {
+  try {
+    return typeof sessionStorage !== 'undefined' && sessionStorage.getItem(ENTERED_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
 const state = {
   hoveredId: null,
   quality: isLowEnd() ? 'low' : 'high',
+  enteredWorld: readEntered(),
 }
 
 const listeners = new Set()
@@ -31,9 +45,23 @@ export const uiStore = {
   get quality() {
     return state.quality
   },
+  get enteredWorld() {
+    return state.enteredWorld
+  },
   setHover(id) {
     if (state.hoveredId !== id) {
       state.hoveredId = id
+      emit()
+    }
+  },
+  markEntered() {
+    if (!state.enteredWorld) {
+      state.enteredWorld = true
+      try {
+        sessionStorage.setItem(ENTERED_KEY, '1')
+      } catch {
+        /* ignore storage errors */
+      }
       emit()
     }
   },
