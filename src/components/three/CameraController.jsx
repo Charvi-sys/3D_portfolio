@@ -9,6 +9,21 @@ import { DEFAULT_CAM, getLocation, LOCATIONS } from '../../data/locations'
 const DEF = new THREE.Vector3(...DEFAULT_CAM.pos)
 const DEF_LOOK = new THREE.Vector3(...DEFAULT_CAM.look)
 
+/**
+ * Portrait / narrow screens see a much narrower slice of the island at the
+ * same camera distance, which makes the world look cramped and cluttered.
+ * Scale the overview camera outward so the whole plaza stays in frame.
+ */
+function portraitZoom(pos) {
+  const aspect = window.innerWidth / Math.max(window.innerHeight, 1)
+  if (aspect >= 1) return pos.clone()
+  // ~1.45× further back on a 414×896 phone, smoothly up to 1.8× at 9:19.5
+  const f = Math.min(1.8, Math.pow(1 / Math.max(aspect, 0.3), 0.55))
+  const out = pos.clone()
+  out.y += 1.5 * (f - 1)
+  return out.multiplyScalar(f)
+}
+
 export default function CameraController() {
   const { camera } = useThree()
   const state = useRef({
@@ -20,7 +35,8 @@ export default function CameraController() {
 
   useEffect(() => {
     camera.up.set(0, 1, 0)
-    camera.position.set(DEF.x, DEF.y, DEF.z)
+    const p = portraitZoom(DEF)
+    camera.position.set(p.x, p.y, p.z)
 
     const unsubCam = camStore.subscribe((fly) => {
       const s = state.current
@@ -33,6 +49,7 @@ export default function CameraController() {
         return
       }
       s.flying = true
+      const target = portraitZoom(new THREE.Vector3(...fly.to))
       const lookFrom = s.look.clone()
       const lookTo = new THREE.Vector3(...fly.look)
       const tl = gsap.timeline({
@@ -43,9 +60,9 @@ export default function CameraController() {
         },
       })
       tl.to(camera.position, {
-        x: fly.to[0],
-        y: fly.to[1],
-        z: fly.to[2],
+        x: target.x,
+        y: target.y,
+        z: target.z,
         duration: fly.duration,
         ease: fly.ease || 'power3.inOut',
       })
@@ -82,11 +99,12 @@ export default function CameraController() {
     const s = state.current
     if (s.flying) return
     const t = clock.elapsedTime
-    // gentle cinematic drift
+    // gentle cinematic drift (recentered when the viewport is portrait)
+    const base = portraitZoom(DEF)
     const drift = new THREE.Vector3(
-      DEF.x + Math.sin(t * 0.06) * 0.5,
-      DEF.y + Math.cos(t * 0.05) * 0.28,
-      DEF.z + Math.sin(t * 0.045 + 1.2) * 0.4,
+      base.x + Math.sin(t * 0.06) * 0.5,
+      base.y + Math.cos(t * 0.05) * 0.28,
+      base.z + Math.sin(t * 0.045 + 1.2) * 0.4,
     )
     camera.position.lerp(drift, 0.025)
 

@@ -3,7 +3,10 @@ import projectPhoto01 from './images/project-photo-01.jpeg'
 import projectPhoto02 from './images/project-photo-02.jpeg'
 import projectPhoto03 from './images/project-photo-03.jpeg'
 import projectPhoto04 from './images/project-photo-04.jpeg'
-import projectPhoto05 from './images/project-photo-05.jpeg'
+import projectPhoto05 from './images/mofftirepeated.jpeg'
+
+/** Edit this file to add / reorder projects. */
+
 
 /** Edit this file to add / reorder projects. */
 export const PROJECTS = [
@@ -18,7 +21,7 @@ export const PROJECTS = [
       'This project focused on exploring different ways to add colour and detail to fabric. We worked with fabric samples and experimented with dyeing, printing, and hand painting. The process required precision, attention to detail, and an understanding of how different techniques work on fabric. It helped me understand fabric as a surface for creative experimentation and design development.',
     tags: ['Dyeing', 'Printing', 'Hand Painting', 'Surface Design'],
     colors: PALETTES.sunset,
-    photo: projectPhoto01,
+    photo: projectPhoto04,
     image: makePoster({
       title: 'Textile & Dye',
       kicker: 'PROJECT 01',
@@ -34,7 +37,7 @@ export const PROJECTS = [
     id: 'fashion-illustrations',
     index: '02',
     title: 'Ideas Through Illustration',
-    category: 'Fashion Illustrations',
+    category: 'Fashion Illustration',
 
     excerpt: 'Illustrations that explore silhouettes, proportions, colours and styling before they become garments.',
     description:
@@ -62,7 +65,7 @@ export const PROJECTS = [
     excerpt: 'Vogue-inspired cover designs and floral illustration for editorial presentation.',
     description:
       'This project explored illustration through fashion-inspired cover designs, including a Vogue-inspired cover and floral illustration work. It involved combining drawing, composition, and visual elements to create an appealing final presentation. The project helped me explore how illustrations can be used in fashion communication, editorial design, and creative storytelling.',
-    tags: ['Editorial', 'Vogue Inspired', 'Floral Illustration', 'Composition'],
+    tags: ['Editorial', 'Vogue-Inspired', 'Floral Illustration', 'Composition'],
     colors: PALETTES.berry,
     photo: projectPhoto03,
     image: makePoster({
@@ -85,9 +88,9 @@ export const PROJECTS = [
     excerpt: 'Planning looks for fashion photography and advertising shoots — concept through presentation.',
     description:
       "This module introduced me to the process of styling for fashion photography and advertising shoots. I learned how clothing, accessories, colours, and overall presentation work together to communicate a particular concept. It also helped me understand the importance of planning a look according to the shoot's theme and visual direction.",
-    tags: ['Fashion Styling', 'Photography', 'Concept Planning', 'Art Direction'],
+    tags: ['Look Planning', 'Photography', 'Concept Planning', 'Art Direction'],
     colors: PALETTES.ocean,
-    photo: projectPhoto04,
+    photo: projectPhoto01,
     image: makePoster({
       title: 'Styling',
       kicker: 'PROJECT 04',

@@ -19,11 +19,11 @@ export const COLLECTIONS = [
     ],
     garments: ['Traditional kurta-pajama', 'Shirt'],
     photos: [dress, dress4],
-    colors: PALETTES.forest,
+    colors: PALETTES.kasavu,
     images: [
-      makePoster({ title: 'Menswear', kicker: 'LOOK 01', index: '1', year: '2023 – 2027', colors: PALETTES.forest, variant: 'coat', seed: 5 }),
+      makePoster({ title: 'Menswear', kicker: 'LOOK 01', index: '1', year: '2023 – 2027', colors: PALETTES.kasavu, variant: 'coat', seed: 5 }),
       makePoster({ title: 'Menswear', kicker: 'LOOK 02', index: '2', year: '2023 – 2027', colors: PALETTES.cream, variant: 'blouse', seed: 6 }),
-      makePoster({ title: 'Menswear', kicker: 'LOOK 03', index: '3', year: '2023 – 2027', colors: PALETTES.forest, variant: 'arch', seed: 7 }),
+      makePoster({ title: 'Menswear', kicker: 'LOOK 03', index: '3', year: '2023 – 2027', colors: PALETTES.kasavu, variant: 'arch', seed: 7 }),
     ],
   },
   {
@@ -39,11 +39,11 @@ export const COLLECTIONS = [
     ],
     garments: ['Black sequinned gown', 'Short white floral dress'],
     photos: [dress1, dress3],
-    colors: PALETTES.plum,
+    colors: PALETTES.midnight,
     images: [
-      makePoster({ title: 'Midnight', kicker: 'LOOK 01', index: '1', year: '2023 – 2027', colors: PALETTES.plum, variant: 'dress', seed: 9 }),
+      makePoster({ title: 'Midnight', kicker: 'LOOK 01', index: '1', year: '2023 – 2027', colors: PALETTES.midnight, variant: 'dress', seed: 9 }),
       makePoster({ title: 'Midnight', kicker: 'LOOK 02', index: '2', year: '2023 – 2027', colors: PALETTES.berry, variant: 'dress', seed: 10 }),
-      makePoster({ title: 'Midnight', kicker: 'LOOK 03', index: '3', year: '2023 – 2027', colors: PALETTES.cream, variant: 'sun', seed: 11 }),
+      makePoster({ title: 'Midnight', kicker: 'LOOK 03', index: '3', year: '2023 – 2027', colors: PALETTES.midnight, variant: 'sun', seed: 11 }),
     ],
   },
   {
@@ -56,11 +56,11 @@ export const COLLECTIONS = [
     ],
     garments: ['Beautiful green gown', 'grenary of nature'],
     photos: [dress5, dress6],
-    colors: PALETTES.sunset,
+    colors: PALETTES.verdant,
     images: [
-      makePoster({ title: 'Sunhari Chave', kicker: 'LOOK 01', index: '1', year: '2023 – 2027', colors: PALETTES.sunset, variant: 'dress', seed: 31 }),
-      makePoster({ title: 'Sunhari Chave', kicker: 'LOOK 02', index: '2', year: '2023 – 2027', colors: PALETTES.cream, variant: 'dress', seed: 32 }),
-      makePoster({ title: 'Sunhari Chave', kicker: 'LOOK 03', index: '3', year: '2023 – 2027', colors: PALETTES.sunset, variant: 'arch', seed: 33 }),
+      makePoster({ title: 'Sunhari Chave', kicker: 'LOOK 01', index: '1', year: '2023 – 2027', colors: PALETTES.verdant, variant: 'dress', seed: 31 }),
+      makePoster({ title: 'Sunhari Chave', kicker: 'LOOK 02', index: '2', year: '2023 – 2027', colors: PALETTES.verdant, variant: 'dress', seed: 32 }),
+      makePoster({ title: 'Sunhari Chave', kicker: 'LOOK 03', index: '3', year: '2023 – 2027', colors: PALETTES.verdant, variant: 'arch', seed: 33 }),
     ],
   },
   

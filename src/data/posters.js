@@ -30,6 +30,10 @@ export const PALETTES = {
   plum: ['#6d227f', '#9340a8', '#f0a0c8', '#250a2b'],
   cream: ['#fbf3e4', '#f0e2c8', '#f97316', '#3d1146'],
   berry: ['#e2574c', '#f97316', '#fbf3e4', '#3d1146'],
+  // Photo-matched palettes (sampled from the collection photography)
+  kasavu: ['#6d227f', '#c9a44c', '#f5ecd7', '#2e1030'], // plum shirt · gold kasavu stripe · cream mundu
+  midnight: ['#1b1b2f', '#4a3f6b', '#efedf8', '#0c0c14'], // night sky · sequin shimmer · white florals
+  verdant: ['#556b2f', '#c9a44c', '#f7f3e6', '#2b2410'], // olive drape · antique gold · warm ivory
 }
 
 const wrap = (title, max = 12) => {
