@@ -1,9 +1,9 @@
 import { makePoster, PALETTES } from './posters'
-import projectPhoto01 from './images/project-photo-01.jpeg'
-import projectPhoto02 from './images/project-photo-02.jpeg'
+import projectPhoto01 from './images/dress6.jpeg'
+import projectPhoto02 from './images/project-photo-01.jpeg'
 import projectPhoto03 from './images/project-photo-03.jpeg'
 import projectPhoto04 from './images/project-photo-04.jpeg'
-import projectPhoto05 from './images/mofftirepeated.jpeg'
+import projectPhoto05 from './images/blockprint.png'
 
 /** Edit this file to add / reorder projects. */
 
@@ -24,7 +24,7 @@ export const PROJECTS = [
     photo: projectPhoto04,
     image: makePoster({
       title: 'Textile & Dye',
-      kicker: 'PROJECT 01',
+      kicker: 'PROJECT 02',
       index: '01',
       year: '2023 – 2027',
       colors: PALETTES.sunset,
@@ -47,7 +47,7 @@ export const PROJECTS = [
     photo: projectPhoto02,
     image: makePoster({
       title: 'Illustration',
-      kicker: 'PROJECT 02',
+      kicker: 'PROJECT 01',
       index: '02',
       year: '2023 – 2027',
       colors: PALETTES.plum,

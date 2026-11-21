@@ -1,0 +1,142 @@
+[1mdiff --git a/src/data/certifications.js b/src/data/certifications.js[m
+[1mindex 5387a77..204ca0b 100644[m
+[1m--- a/src/data/certifications.js[m
+[1m+++ b/src/data/certifications.js[m
+[36m@@ -23,100 +23,6 @@[m [mexport const CERTIFICATIONS = [[m
+     featured: true,[m
+     landscape: true,[m
+   },[m
+[31m-  {[m
+[31m-    id: 'fashion-design-foundation',[m
+[31m-    title: 'Fashion Design Foundation',[m
+[31m-    organization: 'NIFT · Continuing Education',[m
+[31m-    year: '2023',[m
+[31m-    description:[m
+[31m-      'A year-long foundation in fashion illustration, draping, garment construction and design history — completed with distinction.',[m
+[31m-    verificationLink: '#',[m
+[31m-    image: makePoster({[m
+[31m-      title: 'Fashion Design Foundation',[m
+[31m-      kicker: 'CERTIFIED',[m
+[31m-      index: 'I',[m
+[31m-      year: '2023',[m
+[31m-      colors: PALETTES.sunset,[m
+[31m-      variant: 'arch',[m
+[31m-      seed: 3,[m
+[31m-    }),[m
+[31m-    accent: '#f97316',[m
+[31m-  },[m
+[31m-  {[m
+[31m-    id: 'digital-fashion-3d',[m
+[31m-    title: 'Digital Fashion & 3D Design',[m
+[31m-    organization: 'Polimoda · Online',[m
+[31m-    year: '2024',[m
+[31m-    description:[m
+[31m-      'Intensive programme covering digital garment construction, 3D simulation and virtual prototyping for contemporary fashion workflows.',[m
+[31m-    verificationLink: '#',[m
+[31m-    image: makePoster({[m
+[31m-      title: 'Digital Fashion & 3D',[m
+[31m-      kicker: 'CERTIFIED',[m
+[31m-      index: 'II',[m
+[31m-      year: '2024',[m
+[31m-      colors: PALETTES.plum,[m
+[31m-      variant: 'coat',[m
+[31m-      seed: 13,[m
+[31m-    }),[m
+[31m-    accent: '#6d227f',[m
+[31m-  },[m
+[31m-  {[m
+[31m-    id: 'sustainable-fashion-design',[m
+[31m-    title: 'Sustainable Fashion & Circular Design',[m
+[31m-    organization: 'Fashion Revolution Academy',[m
+[31m-    year: '2024',[m
+[31m-    description:[m
+[31m-      'Principles of circular design, material passports and end-of-life thinking for garments — applied in real workshop challenges.',[m
+[31m-    verificationLink: '#',[m
+[31m-    image: makePoster({[m
+[31m-      title: 'Circular Fashion',[m
+[31m-      kicker: 'CERTIFIED',[m
+[31m-      index: 'III',[m
+[31m-      year: '2024',[m
+[31m-      colors: PALETTES.forest,[m
+[31m-      variant: 'blouse',[m
+[31m-      seed: 17,[m
+[31m-    }),[m
+[31m-    accent: '#58a12f',[m
+[31m-  },[m
+[31m-  {[m
+[31m-    id: 'textile-innovation',[m
+[31m-    title: 'Textile Innovation & Smart Materials',[m
+[31m-    organization: 'Parsons · Short Course',[m
+[31m-    year: '2025',[m
+[31m-    description:[m
+[31m-      'Exploration of conductive threads, reactive dyes and embedded sensing — with hands-on prototyping of an interactive textile sample.',[m
+[31m-    verificationLink: '#',[m
+[31m-    image: makePoster({[m
+[31m-      title: 'Smart Textiles',[m
+[31m-      kicker: 'CERTIFIED',[m
+[31m-      index: 'IV',[m
+[31m-      year: '2025',[m
+[31m-      colors: PALETTES.ocean,[m
+[31m-      variant: 'sun',[m
+[31m-      seed: 29,[m
+[31m-    }),[m
+[31m-    accent: '#1fa39a',[m
+[31m-  },[m
+[31m-  {[m
+[31m-    id: 'fashion-film',[m
+[31m-    title: 'Fashion Film & Light Direction',[m
+[31m-    organization: 'Art by Light Studio',[m
+[31m-    year: '2025',[m
+[31m-    description:[m
+[31m-      'Cinematography and art direction for fashion shorts — storyboarding, single-source lighting and colour grading.',[m
+[31m-    verificationLink: '#',[m
+[31m-    image: makePoster({[m
+[31m-      title: 'Fashion Film',[m
+[31m-      kicker: 'CERTIFIED',[m
+[31m-      index: 'V',[m
+[31m-      year: '2025',[m
+[31m-      colors: PALETTES.berry,[m
+[31m-      variant: 'arch',[m
+[31m-      seed: 47,[m
+[31m-    }),[m
+[31m-    accent: '#e2574c',[m
+[31m-  },[m
+[32m+[m[41m [m
+  [m
+ ][m
+\ No newline at end of file[m
+[1mdiff --git a/src/data/projects.js b/src/data/projects.js[m
+[1mindex f5a7d9f..1de3921 100644[m
+[1m--- a/src/data/projects.js[m
+[1m+++ b/src/data/projects.js[m
+[36m@@ -1,9 +1,9 @@[m
+ import { makePoster, PALETTES } from './posters'[m
+[31m-import projectPhoto01 from './images/project-photo-01.jpeg'[m
+[31m-import projectPhoto02 from './images/project-photo-02.jpeg'[m
+[32m+[m[32mimport projectPhoto01 from './images/dress6.jpeg'[m
+[32m+[m[32mimport projectPhoto02 from './images/project-photo-01.jpeg'[m
+ import projectPhoto03 from './images/project-photo-03.jpeg'[m
+ import projectPhoto04 from './images/project-photo-04.jpeg'[m
+[31m-import projectPhoto05 from './images/mofftirepeated.jpeg'[m
+[32m+[m[32mimport projectPhoto05 from './images/blockprint.png'[m
+ [m
+ /** Edit this file to add / reorder projects. */[m
+ [m
+[36m@@ -24,7 +24,7 @@[m [mexport const PROJECTS = [[m
+     photo: projectPhoto04,[m
+     image: makePoster({[m
+       title: 'Textile & Dye',[m
+[31m-      kicker: 'PROJECT 01',[m
+[32m+[m[32m      kicker: 'PROJECT 02',[m
+       index: '01',[m
+       year: '2023 – 2027',[m
+       colors: PALETTES.sunset,[m
+[36m@@ -47,7 +47,7 @@[m [mexport const PROJECTS = [[m
+     photo: projectPhoto02,[m
+     image: makePoster({[m
+       title: 'Illustration',[m
+[31m-      kicker: 'PROJECT 02',[m
+[32m+[m[32m      kicker: 'PROJECT 01',[m
+       index: '02',[m
+       year: '2023 – 2027',[m
+       colors: PALETTES.plum,[m
